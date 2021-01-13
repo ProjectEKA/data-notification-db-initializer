@@ -69,6 +69,9 @@
             <column name="hip_id" type="VARCHAR(20)">
                 <constraints nullable="true"/>
             </column>
+            <column name="excluded" type="BOOLEAN" defaultValueBoolean="false">	
+                <constraints nullable="false"/>	
+            </column>
             <column name="period_from" type="DATETIME" >
                 <constraints nullable="false"/>
             </column>
