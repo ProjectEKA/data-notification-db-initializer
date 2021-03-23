@@ -88,5 +88,16 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-    </changeSet>    
+    </changeSet>
+
+    <changeSet id="220320210308" author="Dheeraj/Richa">
+        <addColumn tableName="subscription_source">
+            <column name="active" type="boolean" defaultValue="true">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <sql splitStatements="true" stripComments="true" endDelimiter="\nGO">
+            CREATE UNIQUE INDEX idx_subscription_hip_unique_constraint ON subscription_source (subscription_id, COALESCE(hip_id, ''))
+        </sql>
+    </changeSet>
 </databaseChangeLog>
