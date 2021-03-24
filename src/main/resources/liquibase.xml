@@ -96,7 +96,10 @@
                 <constraints nullable="false"/>
             </column>
         </addColumn>
-        <sql splitStatements="true" stripComments="true" endDelimiter="\nGO">
+    </changeSet>
+    <changeSet id="240320211230" author="Dheeraj">
+        <comment>Using 'COALESCE' function when creating a unique index is not supported by Liquibase. So, this raw SQL statement is being used to achieve the same.</comment>
+        <sql splitStatements="true" stripComments="true">
             CREATE UNIQUE INDEX idx_subscription_hip_unique_constraint ON subscription_source (subscription_id, COALESCE(hip_id, ''))
         </sql>
     </changeSet>
